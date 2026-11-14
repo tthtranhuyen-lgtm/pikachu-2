@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>⚡ Nối Hán Tự — Luyện nhận diện chữ Hán</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Noto+Sans+SC:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="title-row">
+    <h1>⚡ Nối <span>Hán Tự</span> — Luyện nhận diện chữ Hán</h1>
+    <div class="hud">
+      <div class="chip">⭐ <span id="score">0</span></div>
+      <div class="chip">⏱ <span id="time">00:00</span></div>
+      <div class="chip">🀄 <span id="left">0</span></div>
+    </div>
+  </div>
+  <div class="controls">
+    <select id="level">
+      <option value="easy">Dễ (6×6)</option>
+      <option value="normal" selected>Vừa (6×8)</option>
+      <option value="hard">Khó (8×8)</option>
+    </select>
+    <button id="btnNew">🔄 Chơi mới</button>
+    <button id="btnHint">💡 Gợi ý</button>
+    <button id="btnShuffle">🔀 Xáo trộn</button>
+    <button id="btnVocab">📖 Từ vựng</button>
+    <button id="btnSound">🔊</button>
+  </div>
+</div>
+
+<div class="board-wrap" id="boardWrap">
+  <div class="board" id="board"></div>
+  <svg id="pathLayer" xmlns="http://www.w3.org/2000/svg"></svg>
+</div>
+
+<div class="infobar" id="infobar">👆 Chạm vào một thẻ để nghe, xem phiên âm và nghĩa của từ</div>
+
+<div class="vocab" id="vocab"></div>
+
+<!-- ===== LINH VẬT: ĐÁM MÂY SẤM SÉT ===== -->
+<div class="pika-float">
+  <div class="pika-bubble" id="pikaBubble">
+    <div class="pika-word" id="pikaWord">?</div>
+    <div class="pika-sub" id="pikaSub">Chọn 1 từ nhé!</div>
+  </div>
+  <div class="pika-mascot" id="pika" title="Nhấn để nghe lại từ vừa ghép">
+    <svg class="pika-svg" viewBox="0 0 220 230" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- Tia sét -->
+      <path class="bolt" d="M118 150 L92 200 L112 200 L98 228 L138 182 L117 182 L130 150 Z"
+            fill="#FFC21A" stroke="#C08A00" stroke-width="5" stroke-linejoin="round"/>
+      <!-- Thân mây -->
+      <path d="M52 168 C22 168 14 132 40 122 C34 92 66 74 88 90 C96 56 146 52 156 88
+               C182 80 206 104 192 128 C214 140 204 172 176 168 Z"
+            fill="#FFFDF0" stroke="#C08A00" stroke-width="7" stroke-linejoin="round"/>
+      <!-- Mắt -->
+      <ellipse cx="90" cy="124" rx="9" ry="11" fill="#2B1E00"/>
+      <ellipse cx="140" cy="124" rx="9" ry="11" fill="#2B1E00"/>
+      <circle cx="93" cy="120" r="3.2" fill="#fff"/>
+      <circle cx="143" cy="120" r="3.2" fill="#fff"/>
+      <!-- Má -->
+      <ellipse cx="72" cy="142" rx="10" ry="6" fill="#FFB347" opacity=".7"/>
+      <ellipse cx="158" cy="142" rx="10" ry="6" fill="#FFB347" opacity=".7"/>
+      <!-- Miệng -->
+      <path d="M103 140 Q115 154 127 140" fill="none" stroke="#2B1E00" stroke-width="4.5" stroke-linecap="round"/>
+    </svg>
+    <span class="zap zap1">⚡</span>
+    <span class="zap zap2">⚡</span>
+  </div>
+</div>
+
+<div class="overlay hidden" id="overlay">
+  <div class="card">
+    <div class="big">🎉⚡</div>
+    <h2>Hoàn thành xuất sắc!</h2>
+    <p id="ovText"></p>
+    <button id="ovBtn">Chơi lại</button>
+  </div>
+</div>
+
+<script src="game.js"></script>
+</body>
+</html>
